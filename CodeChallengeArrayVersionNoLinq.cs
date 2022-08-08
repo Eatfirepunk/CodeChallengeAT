@@ -35,17 +35,25 @@ public class Program
 	
 	public static string[] reOrderedArray(string[] originalList, int[] order)
 	{ 
+		// Create a new array which will store a copy of the array but reordered
 		string[] orderedList = new string[originalList.Length];
 		int count = 0;
+		//Loop through each item in the order array
 		foreach(int num in order)
 		{
-			orderedList[count] = originalList[num - 1];
-			count++;
+			//Check if the item is not going to land outside of the bounds of the array
+			if(num <= originalList.Length && num > 0)
+               		 {
+		            // add to the order array the item for the corresponding position
+			    orderedList[count] = originalList[num - 1];					
+			 }
+		    count++;
 		}
 		
 		return orderedList;
 	}
 	
+	// Method to print the results of the newly ordered array or whatever array you pass
 	public static void printList(string[] list)
 		{ 
 			StringBuilder sb = new StringBuilder();
